@@ -33,7 +33,6 @@ result_static = minimize(static_noise_inference, x0=[0.1], args=(data,), bounds=
 best_epsilon = result_static.x[0]
 print(f'Optimized epsilon for Static Noise Inference: {best_epsilon}')
 print(f'Static Noise Inference Log-Likelihood: {-result_static.fun}')
-print(f'Static Noise Inference AIC score: {2*1 - 2 * (-result_static.fun)}')
 
 
 def dynamic_noise_inference(params, data):
@@ -78,7 +77,6 @@ best_T_10, best_T_01 = result_dynamic.x
 print(f'Optimized T_10 for Dynamic Noise Inference: {best_T_10}')
 print(f'Optimized T_01 for Dynamic Noise Inference: {best_T_01}')
 print(f'Dynamic Noise Inference Log-Likelihood: {-result_dynamic.fun}')
-print(f'Dynamic Noise AIC score: {2*2 - 2 * (-result_dynamic.fun)}')
 
 def compute_state_probabilities(params, data):
     T_10, T_01 = params
